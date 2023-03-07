@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,600&display=swap');
+$brand-color: #FF6336;
+$brand-color-background: #FF9C7D;
+
+@mixin flex( $display, $flex-flow, $align, $justify){
+    display: $display;
+    flex-flow: $flex-flow;
+    align-items: $align;
+    justify-content: $justify ;
+}
+@mixin txt( $size, $weight, $height, $align){
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    text-align: $align;
+}
+
+//FONTS
+body{
+    font-family: 'Roboto Flex', sans-serif;
+}
+h1{
+    @include txt( 65px, 600, 70px, center);
+}
+h2{
+    @include txt( 50px, 600, 60px, center);
+}
+h3{
+    @include txt( 30px, 600, 40px, left);
+}
+h4{
+    @include txt( 25px, 600, 35px, center);
+}
+.header__link, .note, .footer__link{
+    @include txt( 15px, 400, auto, left);
+}
+.description{
+    @include txt( 25px, 400, 35px, left);
+}
+.txt-link{
+    text-decoration: underline;
+}
+
+a:hover{
+    color:  darken($brand-color, 10%);
+}
+
+//HEADER
+.header{
+    border-bottom: #cccccc 1px solid;
+    @include flex( flex, row wrap, center, space-between);
+    padding: 25px 50px;
+    gap: 60px;
+
+    &__menu{
+        @include flex( flex, row wrap, center, start);
+        gap: 60px;
+    }
+
+    &__logo{
+        background-image: url(../img/logo_full.svg);
+        background-size: cover;
+        width: 130px;
+        height: 28px;
+        float: left;
+    }
+}
+
+
+//BUTTONS
+.actions{
+    @include flex( flex, row wrap, center, start);
+    gap: 10px;
+}
+.button-secondary{
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid rgba(0,0,0,.5);
+    padding: 0px 40px;
+    height: 60px;
+    cursor: pointer;
+    @include txt( 16px, 600, auto, center);
+    &--small{
+        height: 45px;
+    }
+}
+.button-secondary:hover{
+    background-color:  #f3f3f3;
+}
+.button-primary{
+    background-color: $brand-color;
+    color: #ffffff;
+    border: none;
+    padding: 0px 40px;
+    height: 60px;
+    cursor: pointer;
+    @include txt( 16px, 600, auto, center);
+    &--small{
+        height: 45px;
+    }
+}
+.button-primary:hover{
+    background-color:  darken($brand-color, 10%);
+}
+.button-more{
+    @include txt( 20px, 600, 30px, center);
+	background-color: #ffffff00;
+    cursor: pointer;
+}
+.button-more:hover{
+    color:  darken($brand-color, 10%);
+}
+
+
+//PROMO
+.promo{
+    @include flex( flex, row wrap, center, space-between);
+    padding: 130px 75px 170px;
+    &__txt{
+        @include flex( flex, column wrap, start, start);
+        max-width: 500px;
+    }
+    &__img{
+        width: 50%;
+    }
+    &__description{
+        margin: 50px 0;
+        max-width: 470px;
+    }
+    &__actions{
+        margin: 0 0 25px;
+    }
+    &__title{
+        text-align: left;
+        max-width: 500px;
+    }
+}
+
+//PARTNERS
+.partners{
+    padding: 100px 75px 100px;
+    background-color: $brand-color-background;
+    @include flex( flex, column nowrap, center, center);
+
+    &__list{
+        @include flex( flex, row wrap, center, center);
+        gap: 60px;
+        margin-top: 70px;
+    }
+    &__title{
+        max-width: 720px;
+    }
+}
+
+//VIDEO
+.video{
+    padding: 90px 75px 0px;
+    &__description{
+        font-size: 20px;
+        width: 490px;
+        line-height: 30px;
+    }
+    &__txt{
+        @include flex( flex, column wrap, start, start);
+        gap: 30px;
+    }
+    &__title{
+        max-width: 490px;
+        text-align: left;
+    }
+    &__block{
+        @include flex( flex, row wrap, center, space-between);
+        gap: 30px;
+        margin-bottom: 150px;
+        &--right{
+            @include flex( flex, row wrap-reverse, center, space-between);
+        }
+    }
+    &__autoplay, &__img{
+        width: 50% ;
+        max-width: 630px;
+    }
+}
+
+//INFO
+.info{
+    background-color: #FFF8E4;
+    padding: 120px 75px;
+    &__description{
+        @include txt( 18px, 400, 25px, center);
+        max-width: 300px;
+    }
+    &__title{
+        margin-bottom: 70px;
+    }
+    &__items{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,300px);
+        justify-content: center;
+        gap: 80px;
+    }
+    &__item{
+        @include flex( flex, column nowrap, center, center);
+        gap: 20px;
+    }
+}
+
+//WORK
+.work{
+    padding: 150px 75px 150px;
+    &__title{
+        margin-bottom: 90px;
+    }
+    &__items{
+        @include flex( flex, row wrap, start, space-between);
+        gap: 20px;
+    }
+    &__img{
+        margin-bottom: 60px;
+    }
+    &__item{
+        max-width: 340px;
+    } 
+    &__description, &__txt-link{
+        font-size: 20px;
+    }
+    &__description{
+        margin: 30px 0;
+    }
+}
+
+//REVOLT
+.revolt{
+    background-color: #C9E8F2;
+    padding: 60px 75px 60px;
+    @include flex( flex, row wrap, start, space-between);
+    gap: 30px;
+    &__txt{
+        width: 60%;
+    }
+    &__description{
+        font-size: 30px;
+        margin: 20px 0 30px;
+    }
+    &__img{
+        margin-top: 10px;
+    }
+}
+
+//STARS
+.stars{
+    @include flex( flex, row wrap, center, space-between);
+    gap: 10px;
+    padding: 90px 75px 90px;
+    background-color: #DABC98;
+    &__title{
+        font-size: 35px;
+        max-width: 440px;
+        padding-left: 40px;
+    }
+    &__left{
+        @include flex( flex, row nowrap, center, start);
+    }
+    &__right{
+        @include flex( flex, row wrap, start, start);
+        gap: 40px;
+        border-left: #000 1px solid;
+        padding: 30px 0 30px 60px ;
+    }
+    &__logos{
+        @include flex( flex, column nowrap, start, start);
+        gap: 10px;
+    }
+}
+
+//INTEGRATIONS
+.integrations{
+    padding: 160px 75px 160px;
+    @include flex( flex, column nowrap, center, center);
+    &__title{
+        max-width: 700px;
+    }
+    &__description{
+        text-align: center;
+        max-width: 500px;
+        margin: 10px 0 25px 0;;
+    }
+    &__img{
+        width: 80%;
+        margin-bottom: 30px;
+    }
+}
+
+//TRY-FREE
+.try-free{
+    @include flex( flex, column nowrap, center, center);
+    padding: 140px 75px 140px;
+    background-color: $brand-color-background;
+    &__title{
+        max-width: 700px;
+        text-align: center;
+    }
+    &__description{
+        max-width: 440px;
+        font-size: 20px;
+        text-align: center;
+        margin: 20px 0 50px;
+    }
+    &__button-primary{
+        background-color: #000;
+    }
+}
+
+//FOOTER
+.footer{
+    background-color: #EEEEEE;
+    padding: 90px 75px 40px;
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+    gap: 5%;
+
+    &__title{
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    &__description{
+        @include txt( 20px, 400, 30px, left);
+        max-width: 300px;
+        margin: 15px 0;
+    }
+    &__item{
+        margin-bottom: 10px;
+        max-width: 180px;
+    }
+    &__case{
+        @include flex( flex, column nowrap, start, start);
+    }
+    &__logo{
+        width: 80px;
+    }
+    &__img{
+        margin: 30px 0;
+    }
+    &__note, &__copyright{
+        font-size: 12px;
+        margin-left: 20px;
+        max-width: 300px;
+    }
+    &__logo-info{
+        @include flex( flex, row nowrap, center, start);
+    }
+    &__bottom{
+        @include flex( flex, row wrap, center, space-between);
+        border-top: #000 1px solid;
+        padding-top: 40px;
+        margin-top: 40px;
+        grid-column-start: 1;
+        grid-column-end: span 6;
+    }
+
+
+}
+
