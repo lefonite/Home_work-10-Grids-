@@ -318,8 +318,9 @@ a:hover{
     &__top{
         display: grid;
         // grid-template-columns: repeat(1, 300px) repeat(auto-fill, 180px);
-        grid-template-columns: repeat(auto-fill, 300px);
-
+        // grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+        // grid-template-columns: 300px repeat(auto-fill, minmax(180px, 1fr));
+        grid-template-columns: 300px 1fr 1fr 1fr 1fr;
         justify-content: space-between;
         align-items: start;
         gap: 5%;
