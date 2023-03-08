@@ -314,12 +314,16 @@ a:hover{
 //FOOTER
 .footer{
     background-color: #EEEEEE;
-    padding: 90px 75px 40px;
-    display: grid;
-    grid-template-columns: 300px 1fr 1fr 1fr 1fr;
-    justify-content: space-between;
-    gap: 5%;
+    padding: 90px 75px 0px;
+    &__top{
+        display: grid;
+        // grid-template-columns: repeat(1, 300px) repeat(auto-fill, 180px);
+        grid-template-columns: repeat(auto-fill, 300px);
 
+        justify-content: space-between;
+        align-items: start;
+        gap: 5%;
+    }
     &__title{
         font-size: 20px;
         font-weight: 600;
@@ -354,12 +358,8 @@ a:hover{
     &__bottom{
         @include flex( flex, row wrap, center, space-between);
         border-top: #000 1px solid;
-        padding-top: 40px;
-        margin-top: 40px;
-        grid-column-start: 1;
-        grid-column-end: span 6;
+        padding: 40px 0;
+        margin-top: 80px;
     }
-
-
 }
 
